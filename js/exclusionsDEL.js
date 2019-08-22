@@ -20,19 +20,22 @@
         var l = ws.find(w => w.name === "ExclusionList");
 
         l.getSelectedMarksAsync().then(function(marks) {
-            const worksheetData = marks.data[0];
-            worksheetData.array.forEach(e => {
-                alert(e);
-            });
-        })
+                const worksheetData = marks.data[0];
+                worksheetData['_data'].forEach(e => {
+                    //console.log(worksheetData['_data'][0][0]._value);    
+                    console.log(e[0]._value);
+                    deleteExc(e[0]._value);
+                })
+            })
+            .then(console.log('Removal complete. Refresh Extract to see changes.'));
     }
 
-    function deleteExc() {
+    function deleteExc(fkcs) {
         $.ajax({
             url: "https://nswebhook.checksix.com/api/exclude/",
             type: "DELETE",
             success: function(status) { alert(status); },
-            data: JSON.stringify({ FkCallSign: callsign[0].name._value, secretkey: secret[0].name._value })
+            data: JSON.stringify({ FkCallSign: fkcs, secretkey: secret[0].name._value })
         });
     }
 
