@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="container col-lg-4">
+    <!-- This div, with the ID "app", is where the application appears when it runs. -->
+    <div id="app"></div>
+
+    <!-- This unusual tag is a script text/template. It does not actually appear on the page as HTML. However, Vue can reference this HTML by ID and use it essentially as a template string. -->
+    <script type="text/x-template" id="app-template">
+        <section>
+            <!-- <h3 class="mt-5">medicals | {{ callsign[0].name._value}}</h3> -->
+            <div id="medicalListDiv">
+                <h3 class="mt-1">Medicals</h3>
+                <ul id="medicalList" class="list-group">
+                    <li v-for="medical in medicals" :key="medical.name" v-on:click="medical.delete = !medical.delete">
+                        <label class="form-check-label ml-4">
+                        <input
+                            type="checkbox"
+                            v-model="medical.delete"
+                            class="form-check-input">
+                        <span :class="medical.isExpired">
+                            <span v-bind:class="{deleted:medical.delete}">
+                                {{ medical.name._value }}
+                            </span>
+                        </span>
+                    </label>
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <div class="newEntryDD">
+                <button class="apiInput" @click="D3lete()">Delete checked entries</button>
+                <br>
+                <form v-on:submit.prevent="addTomedicals" class="mt-3">
+                    Add a new entry: <br>
+                    <select v-model="allMedicals.selected">
+                    <option v-for="medical1 in allMedicals" v-bind:value="medical1.medicalId._value">
+                        {{ medical1.name._value}}
+                    </option>
+                </select><br>
+                    <input v-model="message" placeholder="Expiration Date:" name="selected_date" id="datepicker" />
+                    <br>
+                    <button class="apiInput" @click="P0st()">Add Entry</button>
+                </form>
+            </div>
+        </section>
+    </script>
+
+    <!-- Vue can be included as a script tag at the end of the application's HTML. There is no need for a build step at all, if you don't want one. -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+
+</body>
+<!-- Finally, the JavaScript file containing our application logic. -->
+<script type="text/javascript" src="libs/jquery/dist/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/tableau.extensions.1.2.0.js"></script>
+<script type="text/javascript" src="js/meds.js"></script>
+
+</html>

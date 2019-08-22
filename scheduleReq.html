@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="container col-lg-4">
+    <!-- This div, with the ID "app", is where the application appears when it runs. -->
+    <div id="app"></div>
+
+    <!-- This unusual tag is a script text/template. It does not actually appear on the page as HTML. However, Vue can reference this HTML by ID and use it essentially as a template string. -->
+    <script type="text/x-template" id="app-template">
+        <section>
+            <div>
+                <h4 class="mt-1">Coach Support Request</h4>
+            </div>
+            <div class="newEntryDD">
+                <button class="apiInput" @click="G3t()">Get Selected Event Details</button>
+                <form v-on:submit.prevent="addToCallSigns" class="mt-3">Select a Coach:<br>
+                    <select v-model="req.callsign">
+                        <option v-for="callSign1 in req.allCallSigns" v-bind:value="callSign1.name">
+                            {{ callSign1.name}}
+                        </option>
+                    </select><br>
+                </form>
+                <span class="mt-3">Starting Date:</span>
+                <br>
+                <input type="date" v-model="req.date1" placeholder="Starting Date:" name="selected_date" id="datepicker" />
+                <br>
+                <br>
+                <span class="mt-3">Ending Date:</span>
+                <br>
+                <input type="date" v-model="req.date2" placeholder="Ending Date:" name="selected_date1" id="datepicker1" />
+                <br>
+                <form v-on:submit.prevent="addToEvents" class="mt-3">Select an Event Type:<br>
+                    <select v-model="req.allEvents.selected">
+                        <option v-for="event in req.allEvents" v-bind:value="event.FkEventId">
+                            {{ event.name}}
+                        </option>
+                    </select><br>
+                </form>
+                <br>
+                <span class="mt-3">Requesting Comment:</span>
+                <br>
+                <textarea class="apiInput" style="margin-top: 0px; margin-bottom: 0px; height: 100px;" v-model="req.Comment"></textarea>
+                <br>
+                <span class="mt-3">Request Status Code:</span>
+                <br>
+                <select v-model="req.allStatus.selected">
+                    <option v-for="status in req.allStatus" v-bind:value="status">
+                        {{ status}}
+                    </option>
+                </select>
+                <button class="apiInput" @click="P0st()">{{req.buttonText}}</button>
+                <br>
+                <br>Entered password: {{req.password}}
+                <br>
+                <button class="apiInput" @click="R3fresh()">Refresh Password</button>
+            </div>
+        </section>
+    </script>
+    <!-- Vue can be included as a script tag at the end of the application's HTML. There is no need for a build step at all, if you don't want one. -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+
+</body>
+<!-- Finally, the JavaScript file containing our application logic. -->
+<script type="text/javascript" src="libs/jquery/dist/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/tableau.extensions.1.2.0.js"></script>
+<script type="text/javascript" src="js/scheduleREQ.js"></script>
+
+</html>

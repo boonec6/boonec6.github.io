@@ -1,0 +1,222 @@
+/* These minimal styles make the list look more consistent. */
+
+* {
+    font-family: Arial, Helvetica, sans-serif !important;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    font-size: .95em;
+}
+
+button {
+    font-size: .75em;
+    width: 120px;
+    height: 1.8em;
+}
+
+a {
+    text-decoration: none;
+}
+
+.myButton1 {
+    background-color: #abdfff;
+    border: 1px solid #000000;
+    cursor: pointer;
+    color: #000000;
+    font-family: Verdana;
+    font-size: 11px;
+    padding: 12px;
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    max-height: 50px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.myButton2 {
+    background-color: #caffab;
+    border: 1px solid #000000;
+    cursor: pointer;
+    color: #000000;
+    font-family: Verdana;
+    font-size: 11px;
+    padding: 12px;
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    max-height: 50px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.mt-1 {
+    text-align: left
+}
+
+.mt-3 {
+    font-size: 1em;
+}
+
+.apiInput {
+    width: 270px;
+}
+
+.centerImg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    max-height: 50px;
+    align-items: center;
+    font-size: .75em;
+    font-weight: bold;
+}
+
+.newEntryDD {}
+
+.deleted {
+    font-style: italic;
+    text-decoration: line-through;
+    color: rgb(95, 95, 95);
+}
+
+.isExpired {
+    display: inline-block;
+    width: 250px;
+    border: 1px solid black;
+    background-color: rgba(255, 0, 0, 0.7);
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+.notExpired {
+    display: inline-block;
+    width: 250px;
+    border: 1px solid black;
+    background-color: rgb(33, 201, 0);
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+.noExpiration {
+    display: inline-block;
+    width: 250px;
+    border: 1px solid black;
+    background-color: rgb(0, 159, 252);
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+.level0 {
+    display: inline-block;
+    width: 250px;
+    border: 1px solid black;
+    background-color: rgba(255, 0, 0, 0.692);
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+.level1 {
+    display: inline-block;
+    width: 250px;
+    border: 1px solid black;
+    background-color: rgb(228, 91, 0);
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+.level2 {
+    display: inline-block;
+    width: 250px;
+    border: 1px solid black;
+    background-color: rgb(251, 255, 0);
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+.level3 {
+    display: inline-block;
+    width: 250px;
+    border: 1px solid black;
+    background-color: rgb(179, 255, 0);
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+.level4 {
+    display: inline-block;
+    width: 250px;
+    border: 1px solid black;
+    background-color: rgb(33, 201, 0);
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+.Manual {
+    display: inline-block;
+    width: 250px;
+    border: 1px solid black;
+    background-color: rgb(251, 255, 0);
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+.Product {
+    display: inline-block;
+    width: 250px;
+    border: 1px solid black;
+    background-color: rgb(0, 159, 252);
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+.Market {
+    display: inline-block;
+    width: 250px;
+    border: 1px solid black;
+    background-color: rgb(33, 201, 0);
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+select {
+    width: 270px;
+}
+
+ul {
+    cursor: pointer;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}

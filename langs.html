@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="container col-lg-4">
+    <!-- This div, with the ID "app", is where the application appears when it runs. -->
+    <div id="app"></div>
+
+    <!-- This unusual tag is a script text/template. It does not actually appear on the page as HTML. However, Vue can reference this HTML by ID and use it essentially as a template string. -->
+    <script type="text/x-template" id="app-template">
+        <section>
+            <!-- <h3 class="mt-5">Languages | {{ callsign[0].name._value}}</h3> -->
+            <div id="languageListDiv">
+                <h3 class="mt-1">Languages </h3>
+                <ul id="languageList" class="list-group">
+                    <li v-for="lang in langs" :key="lang.name" v-on:click="lang.delete = !lang.delete">
+                        <label class="form-check-label ml-4">
+                        <input
+                            type="checkbox"
+                            v-model="lang.delete"
+                            class="form-check-input">
+                        
+                        <span :class="lang.level" >
+                            <span v-bind:class="{deleted:lang.delete}">
+                            {{ lang.name._value }}
+                            </span>
+                        </span>
+                    </label>
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <button class="apiInput" @click="D3lete()">Delete checked entries</button>
+            <br>
+            <div class="newEntryDD">
+                <form v-on:submit.prevent="addToLangs" class="mt-3">
+                    Add a new entry: <br>
+                    <select v-model="allLangs.selected">
+                    <option v-for="lang1 in allLangs" v-bind:value="lang1.langId._value">
+                        {{ lang1.name._value}}
+                    </option>
+                </select><br>
+                    <select v-model="allLevs.selected" class='dropd'>
+                        <option v-for="lev in allLevs" v-bind:value="lev.levId._value">
+                            {{ lev.name._value}}
+                        </option>
+                </select>
+                    <br>
+                    <button class="apiInput" @click="P0st()">Add Entry</button>
+
+                </form>
+            </div>
+        </section>
+    </script>
+
+    <!-- Vue can be included as a script tag at the end of the application's HTML. There is no need for a build step at all, if you don't want one. -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+
+</body>
+<!-- Finally, the JavaScript file containing our application logic. -->
+<script type="text/javascript" src="libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/tableau.extensions.1.2.0.js"></script>
+<script type="text/javascript" src="js/langs.js"></script>
+
+</html>

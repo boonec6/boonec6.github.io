@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="container col-lg-4">
+    <!-- This div, with the ID "app", is where the application appears when it runs. -->
+    <div id="app"></div>
+
+    <!-- This unusual tag is a script text/template. It does not actually appear on the page as HTML. However, Vue can reference this HTML by ID and use it essentially as a template string. -->
+    <script type="text/x-template" id="app-template">
+        <section>
+            <button class="exclusionBtn" @click="exclud3()">Add to Exclusion List</button>
+        </section>
+    </script>
+
+    <!-- Vue can be included as a script tag at the end of the application's HTML. There is no need for a build step at all, if you don't want one. -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+
+</body>
+<!-- Finally, the JavaScript file containing our application logic. -->
+<script type="text/javascript" src="libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/tableau.extensions.1.2.0.js"></script>
+<script type="text/javascript" src="js/exclusions.js"></script>
+
+</html>
