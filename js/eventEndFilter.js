@@ -21,5 +21,5 @@
         l.applyRangeFilterAsync("End Date Time", filterOptions);
         console.log("Filter should be: " + sDate + "-" + eDate);
     }
-    $('#mainBtn').click(btnClick);
+    //$('#mainBtn').click(btnClick);
 })();
