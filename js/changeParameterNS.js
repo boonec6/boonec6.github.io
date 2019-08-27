@@ -14,7 +14,6 @@ var secret = "";
                 //hideLoading();
                 //showObj();
                 //createParameterListener();
-                xhrClick();
             },
         );
     });
