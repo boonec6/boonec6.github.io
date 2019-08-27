@@ -88,7 +88,7 @@ var secret = "";
                             var l2a = (sumdata.data[0][l1a]._value);
                             selectedLead.changeValueAsync(l2);
                             selectedProject.changeValueAsync(l2a);
-                            refreshData();
+                            //refreshData();
                         })
                         // .then(function(x) {
                         //     //alert("sumdataAsync complete");
