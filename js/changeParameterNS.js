@@ -120,7 +120,7 @@ var secret = "";
                     secretkey: secret
                 }),
                 function(status) { alert(status); });
-            refreshData();
+            //refreshData();
         })
     };
 
@@ -133,7 +133,7 @@ var secret = "";
                     secretkey: secret
                 }),
                 function(status) { alert(status); });
-            refreshData();
+            //refreshData();
         })
     };
     var refreshClick = function() {
