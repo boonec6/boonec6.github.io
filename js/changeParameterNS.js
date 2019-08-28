@@ -29,9 +29,9 @@ function getLoadingID() {
     var loadingObj = dash.objects.find(o => o.name === "loadingVert");
     //alert("Loading ID: " + loadingObj.id);
     loadingID = loadingObj.id;
-    console.log("loading ID: " + loadingID);
+    //console.log("loading ID: " + loadingID);
     //alert("loadingID variable = " + loadingID);
-    showLoading();
+    //showLoading();
 };
 
 async function showLoading() {
@@ -124,16 +124,18 @@ function refreshCall() {
 };
 
 function appendCall() {
-    tableau.extensions.dashboardContent.dashboard.getParametersAsync().then(function(t) {
-        var p = t.find(p1 => p1.name === "selectedLead");
-        var pCS = p.currentValue._value;
-        $.post("https://nswebhook.checksix.com/api/Append/",
-            JSON.stringify({
-                secretkey: secret
-            }),
-            function(status) { alert(status); });
-        //refreshData();
-    })
+    showLoading();
+    $.post("https://nswebhook.checksix.com/api/Append/",
+        JSON.stringify({
+            secretkey: secret
+        }),
+        function(status) {
+            console.log(status);
+            hideLoading();
+            //alert(status); 
+        });
+    //refreshData();
+
 };
 var refreshClick = function() {
     //showObj();
