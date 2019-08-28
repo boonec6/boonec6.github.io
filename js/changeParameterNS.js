@@ -140,14 +140,10 @@ var secret = "";
         //showObj();
         refreshCall();
     };
-    var appendClick = function() {
+
+    function appendClick() {
         //showObj();
         appendCall();
     };
-
-
-
-    $('#refreshBtn').click(refreshClick);
-    $('#appendBtn').click(appendClick);
 
 })();
