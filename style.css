@@ -22,8 +22,7 @@ a {
     text-decoration: none;
 }
 
-.myButton1 {
-    background-color: #abdfff;
+.myButton {
     border: 1px solid #000000;
     cursor: pointer;
     color: #000000;
@@ -43,25 +42,28 @@ a {
     margin-bottom: 8px;
 }
 
-.myButton2 {
+.myButton.b1 {
+    background-color: #abdfff;
+}
+
+.myButton.b2 {
     background-color: #caffab;
-    border: 1px solid #000000;
-    cursor: pointer;
-    color: #000000;
-    font-family: Verdana;
-    font-size: 11px;
-    padding: 12px;
-    text-decoration: none;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    max-height: 50px;
-    align-items: center;
-    margin-bottom: 8px;
+}
+
+.myButton.b3 {
+    background-color: #ffc6ab;
+}
+
+.myButton.b4 {
+    background-color: #bdabff;
+}
+
+.myButton.b5 {
+    background-color: #95ffd3;
+}
+
+.myButton.b6 {
+    background-color: #ffabc7;
 }
 
 .mt-1 {
