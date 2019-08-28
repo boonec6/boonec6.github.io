@@ -8,7 +8,7 @@ $(document).ready(function() {
         function() {
             loadSecret();
             //alert('extensions ready');
-            //getLoadingID();
+            getLoadingID();
             createFilterListener();
             //hideLoading();
             //showObj();
@@ -26,7 +26,7 @@ function loadSecret() {
 
 function getLoadingID() {
     var dash = tableau.extensions.dashboardContent.dashboard;
-    var loadingObj = dash.objects.find(o => o.name === "loading");
+    var loadingObj = dash.objects.find(o => o.name === "loadingVert");
     //alert("Loading ID: " + loadingObj.id);
     loadingID = loadingObj.id;
     console.log("loading ID: " + loadingID);
