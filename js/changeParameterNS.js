@@ -132,7 +132,11 @@ function appendCall() {
         function(status) {
             console.log(status);
             hideLoading();
-            //alert(status); 
+            if (status.includes('none')) {
+                alert('Database is up to date');
+            } else {
+
+            }
         });
     //refreshData();
 
