@@ -55,6 +55,17 @@
                     allEvents.selected = seldata.data[0].data[0][0].value;
                     app.req.allStatus.selected = seldata.data[0].data[0][17].value;
                     app.req.buttonText = "Update Request: " + app.req.eventId;
+
+                    console.log(seldata.data[0].data[0][4].value);
+                    console.log(seldata.data[0].data[0][9].value);
+                    console.log(seldata.data[0].data[0][6].value);
+                    console.log(seldata.data[0].data[0][5].value);
+                    console.log(seldata.data[0].data[0][2].value);
+                    console.log(seldata.data[0].data[0][1].value);
+                    console.log(seldata.data[0].data[0][8].value);
+                    console.log(seldata.data[0].data[0][0].value);
+                    console.log(seldata.data[0].data[0][17].value);
+                    console.log("Update Request: " + app.req.eventId);
                 });
             },
             P0st: function() {
