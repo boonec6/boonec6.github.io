@@ -45,27 +45,49 @@
 
 
                 var sel = ws.getSelectedMarksAsync().then(function(seldata) {
-                    app.req.callsign = seldata.data[0].data[0][4].value;
-                    app.req.date1 = seldata.data[0].data[0][9].value;
-                    app.req.date2 = seldata.data[0].data[0][6].value;
-                    app.req.Comment = seldata.data[0].data[0][5].value;
-                    app.req.calColor = seldata.data[0].data[0][2].value;
-                    app.req.isAdmin = seldata.data[0].data[0][1].value;
-                    app.req.eventId = seldata.data[0].data[0][8].value;
-                    allEvents.selected = seldata.data[0].data[0][0].value;
-                    app.req.allStatus.selected = seldata.data[0].data[0][17].value;
-                    app.req.buttonText = "Update Request: " + app.req.eventId;
+                    // app.req.callsign = seldata.data[0].data[0][4].value;
+                    // app.req.date1 = seldata.data[0].data[0][9].value;
+                    // app.req.date2 = seldata.data[0].data[0][6].value;
+                    // app.req.Comment = seldata.data[0].data[0][5].value;
+                    // app.req.calColor = seldata.data[0].data[0][2].value;
+                    // app.req.isAdmin = seldata.data[0].data[0][1].value;
+                    // app.req.eventId = seldata.data[0].data[0][8].value;
+                    // allEvents.selected = seldata.data[0].data[0][0].value;
+                    // app.req.allStatus.selected = seldata.data[0].data[0][17].value;
 
-                    console.log(seldata.data[0].data[0][4].value);
-                    console.log(seldata.data[0].data[0][9].value);
-                    console.log(seldata.data[0].data[0][6].value);
-                    console.log(seldata.data[0].data[0][5].value);
-                    console.log(seldata.data[0].data[0][2].value);
-                    console.log(seldata.data[0].data[0][1].value);
-                    console.log(seldata.data[0].data[0][8].value);
-                    console.log(seldata.data[0].data[0][0].value);
-                    console.log(seldata.data[0].data[0][17].value);
-                    console.log("Update Request: " + app.req.eventId);
+
+                    seldata.data[0].columns.forEach(c => {
+                        console.log(c._fieldName);
+                        if (c.fieldName == 'Call Sign') {
+                            app.req.callsign = seldata.data[0].data[0][c._index].value;
+                            console.log(app.req.callsign);
+                        } else if (c.fieldName == 'Start Date Time') {
+                            app.req.date1 = seldata.data[0].data[0][c._index].value;
+                            console.log(app.req.date1);
+                        } else if (c.fieldName == 'End Date Time') {
+                            app.req.date2 = seldata.data[0].data[0][c._index].value;
+                            console.log(app.req.date2);
+                        } else if (c.fieldName == 'Comment') {
+                            app.req.Comment = seldata.data[0].data[0][c._index].value;
+                            console.log(app.req.Comment);
+                        } else if (c.fieldName == 'Calendar Color') {
+                            app.req.calColor = seldata.data[0].data[0][c._index].value;
+                            console.log(app.req.calColor);
+                        } else if (c.fieldName == 'isAdmin') {
+                            app.req.isAdmin = seldata.data[0].data[0][c._index].value;
+                            console.log(app.req.isAdmin);
+                        } else if (c.fieldName == 'ATTR(Fk Event Id)') {
+                            app.req.eventId = seldata.data[0].data[0][c._index].value;
+                            console.log(app.req.eventId);
+                        } else if (c.fieldName == 'qualFkEventId') {
+                            allEvents.selected = seldata.data[0].data[0][c._index].value;
+                            console.log(allEvents.selected);
+                        } else if (c.fieldName == 'ATTR(Status1') {
+                            app.req.allStatus.selected = seldata.data[0].data[0][c._index].value;
+                            console.log(app.req.allStatus.selected);
+                        }
+                    })
+                    app.req.buttonText = "Update Request: " + app.req.eventId;
                 });
             },
             P0st: function() {
