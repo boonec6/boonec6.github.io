@@ -82,7 +82,7 @@
                         } else if (c.fieldName == 'qualFkEventId') {
                             allEvents.selected = seldata.data[0].data[0][c._index].value;
                             console.log(allEvents.selected);
-                        } else if (c.fieldName == 'ATTR(Status1') {
+                        } else if (c.fieldName == 'Event Status Code') {
                             app.req.allStatus.selected = seldata.data[0].data[0][c._index].value;
                             console.log(app.req.allStatus.selected);
                         }
