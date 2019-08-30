@@ -10,7 +10,7 @@
 
     function buildDialog() {
         var srcSheet = tableau.extensions.settings.get("srcSheet");
-        var srcFilter = tableau.extensions.settings.get("srcFilter");
+        var srcField = tableau.extensions.settings.get("srcField");
         var param = tableau.extensions.settings.get("param");
 
         let dashboard = tableau.extensions.dashboardContent.dashboard;
@@ -36,7 +36,7 @@
             filterUpdate();
         });
         $("#srcSheet").val(srcSheet);
-        $("#srcFilter").val(srcFilter);
+        $("#srcField").val(srcFilter);
         $("#param").val(param);
         $('#cancel').click(closeDialog);
         $('#save').click(saveButton);
@@ -51,13 +51,15 @@
             return sheet.name === worksheetName;
         });
 
-        var counter = 1;
-        worksheet.getFiltersAsync().then(function(filters) {
-            filters.forEach(function(f) {
-                $("#srcFilter").append("<option value='" + f.fieldId + "'>" + f.fieldName + "</option>");
+        worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function(sumdata) {
+            var cols = sumdata.columns;
+            $("srcField".text(""));
+            var counter = 1;
+            cols.forEach(function(c) {
+                $("#srcField").append("<option value='" + counter + "'>" + c.fieldName + "</option>");
                 counter++;
-            });
-        });
+            })
+        })
     }
 
     function closeDialog() {
@@ -66,7 +68,7 @@
 
     function saveButton() {
         tableau.extensions.settings.set("srcSheet", $("#srcSheet").val());
-        tableau.extensions.settings.set("srcFilter", $("#srcFilter").val());
+        tableau.extensions.settings.set("srcField", $("#srcField").val());
         tableau.extensions.settings.set("param", $("#param").val());
         tableau.extensions.settings.saveAsync().then((currentSettings) => {
             tableau.extensions.ui.closeDialog("10");
