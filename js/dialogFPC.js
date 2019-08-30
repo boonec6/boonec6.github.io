@@ -53,7 +53,7 @@
 
         worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function(sumdata) {
             var cols = sumdata.columns;
-            $("srcField".text(""));
+            $("srcField").text("");
             var counter = 1;
             cols.forEach(function(c) {
                 console.log(counter + '\t' + c.fieldName);
