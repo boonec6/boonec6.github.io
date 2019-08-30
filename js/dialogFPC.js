@@ -53,7 +53,7 @@
 
         worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function(sumdata) {
             var cols = sumdata.columns;
-            $("srcField").text("");
+            $("#srcField").empty();
             var counter = 1;
             cols.forEach(function(c) {
                 console.log(counter + '\t' + c.fieldName);
@@ -68,9 +68,9 @@
     }
 
     function saveButton() {
+        tableau.extensions.settings.set("param", $("#param").val());
         tableau.extensions.settings.set("srcSheet", $("#srcSheet").val());
         tableau.extensions.settings.set("srcField", $("#srcField").val());
-        tableau.extensions.settings.set("param", $("#param").val());
         tableau.extensions.settings.saveAsync().then((currentSettings) => {
             tableau.extensions.ui.closeDialog("10");
         });
