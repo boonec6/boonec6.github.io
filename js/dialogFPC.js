@@ -56,6 +56,7 @@
             $("srcField".text(""));
             var counter = 1;
             cols.forEach(function(c) {
+                console.log(counter + '\t' + c.fieldName);
                 $("#srcField").append("<option value='" + counter + "'>" + c.fieldName + "</option>");
                 counter++;
             })
