@@ -1,15 +1,17 @@
 'use strict';
 
 $(document).ready(function() {
+    // Added new code here to point to the configure function.
     tableau.extensions.initializeAsync({ 'configure': configure }).then(function() {
         console.log("configuration");
         //createFilterListener();
     }, function() { console.log('Error while Initializing: ' + err.toString()); });
 });
 
+
 // This opens the configuration window.
 function configure() {
-    const popupUrl = `https://boonec6.github.io/configDialogFPC.html`;
+    const popupUrl = 'https://boonec6.github.io/configDialogFPC.html';
     let defaultPayload = "";
     tableau.extensions.ui.displayDialogAsync(popupUrl, defaultPayload, { height: 450, width: 500 }).then((closePayload) => {}).catch((error) => {
         switch (error.errorCode) {
