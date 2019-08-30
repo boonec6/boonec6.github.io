@@ -2,6 +2,7 @@
 
 $(document).ready(function() {
     tableau.extensions.initializeAsync({ 'configure': configure }).then(function() {
+        console.log("configuration");
         //createFilterListener();
     }, function() { console.log('Error while Initializing: ' + err.toString()); });
 });
