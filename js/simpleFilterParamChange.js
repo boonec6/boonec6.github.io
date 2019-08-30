@@ -37,7 +37,7 @@ function createFilterListener() {
             var selParam = t.find(p1 => p1.name === param);
 
             ws.getSummaryDataAsync().then(function(sumdata) {
-                var value = sumdata.data[0][srcField].value;
+                var value = sumdata.data[0][0].value;
                 console.log(value);
                 selParam.changeValueAsync(value);
             })
