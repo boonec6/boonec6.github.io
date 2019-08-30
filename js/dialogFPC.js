@@ -29,21 +29,21 @@
         var worksheetName = tableau.extensions.settings.get("worksheet");
         if (worksheetName != undefined) {
             $("#srcSheet").val(worksheetName);
-            filterUpdate();
+            sheetUpdate();
         }
 
         $('#srcSheet').on('change', '', function(e) {
-            filterUpdate();
+            sheetUpdate();
         });
         $("#srcSheet").val(srcSheet);
-        $("#srcField").val(srcFilter);
+        $("#srcField").val(srcField);
         $("#param").val(param);
         $('#cancel').click(closeDialog);
         $('#save').click(saveButton);
     }
 
 
-    function filterUpdate() {
+    function sheetUpdate() {
         var worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
         var worksheetName = $("#srcSheet").val();
 
