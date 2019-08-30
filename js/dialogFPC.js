@@ -9,9 +9,9 @@
     });
 
     function buildDialog() {
-        var apiPoint = tableau.extensions.settings.get("srcSheet");
-        var username = tableau.extensions.settings.get("srcFilter");
-        var password = tableau.extensions.settings.get("param");
+        var srcSheet = tableau.extensions.settings.get("srcSheet");
+        var srcFilter = tableau.extensions.settings.get("srcFilter");
+        var param = tableau.extensions.settings.get("param");
 
         let dashboard = tableau.extensions.dashboardContent.dashboard;
         dashboard.worksheets.forEach(function(worksheet) {
@@ -23,7 +23,7 @@
             filterUpdate();
         }
 
-        $('#selectWorksheet').on('change', '', function(e) {
+        $('#srcSheet').on('change', '', function(e) {
             filterUpdate();
         });
         $("#srcSheet").val(srcSheet);
@@ -35,7 +35,6 @@
 
 
     function filterUpdate() {
-
         var worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
         var worksheetName = $("#srcSheet").val();
 
