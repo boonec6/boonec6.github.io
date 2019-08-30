@@ -2,13 +2,13 @@
 
 $(document).ready(function() {
     tableau.extensions.initializeAsync({ 'configure': configure }).then(function() {
-        createFilterListener();
+        //createFilterListener();
     }, function() { console.log('Error while Initializing: ' + err.toString()); });
 });
 
 // This opens the configuration window.
 function configure() {
-    const popupUrl = `https://boonec6.github.io/configDialog.html`;
+    const popupUrl = `https://boonec6.github.io/configDialogFPC.html`;
     let defaultPayload = "";
     tableau.extensions.ui.displayDialogAsync(popupUrl, defaultPayload, { height: 450, width: 500 }).then((closePayload) => {}).catch((error) => {
         switch (error.errorCode) {
