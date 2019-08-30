@@ -45,7 +45,7 @@
         var counter = 1;
         worksheet.getFiltersAsync().then(function(filters) {
             filters.forEach(function(f) {
-                $("#srcFilter").append("<option value='" + counter + "'>" + current_value.fieldId + "</option>");
+                $("#srcFilter").append("<option value='" + counter + "'>" + f.fieldId + "</option>");
                 counter++;
             });
         });
