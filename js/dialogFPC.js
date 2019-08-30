@@ -9,47 +9,17 @@
     });
 
     function buildDialog() {
-        var apiPoint = tableau.extensions.settings.get("srcSheet");
-        var username = tableau.extensions.settings.get("srcFilter");
-        var password = tableau.extensions.settings.get("param");
+        var apiPoint = tableau.extensions.settings.get("apiPoint");
+        var username = tableau.extensions.settings.get("username");
+        var password = tableau.extensions.settings.get("password");
+        var extractId = tableau.extensions.settings.get("extractId");
 
-        let dashboard = tableau.extensions.dashboardContent.dashboard;
-        dashboard.worksheets.forEach(function(worksheet) {
-            $("#srcSheet").append("<option value='" + worksheet.name + "'>" + worksheet.name + "</option>");
-        });
-        var worksheetName = tableau.extensions.settings.get("worksheet");
-        if (worksheetName != undefined) {
-            $("#srcSheet").val(worksheetName);
-            filterUpdate();
-        }
-
-        $('#selectWorksheet').on('change', '', function(e) {
-            filterUpdate();
-        });
-        $("#srcSheet").val(srcSheet);
-        $("#srcFilter").val(srcFilter);
-        $("#param").val(param);
+        $("#apiPoint").val(apiPoint);
+        $("#name").val(username);
+        $("#pword").val(password);
+        $("#exId").val(extractId);
         $('#cancel').click(closeDialog);
         $('#save').click(saveButton);
-    }
-
-
-    function filterUpdate() {
-
-        var worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
-        var worksheetName = $("#srcSheet").val();
-
-        var worksheet = worksheets.find(function(sheet) {
-            return sheet.name === worksheetName;
-        });
-
-        var counter = 1;
-        worksheet.getFiltersAsync().then(function(filters) {
-            filters.forEach(function(f) {
-                $("#srcFilter").append("<option value='" + counter + "'>" + current_value.fieldId + "</option>");
-                counter++;
-            });
-        });
     }
 
     function closeDialog() {
@@ -57,9 +27,11 @@
     }
 
     function saveButton() {
-        tableau.extensions.settings.set("srcSheet", $("#srcSheet").val());
-        tableau.extensions.settings.set("srcFilter", $("#srcFilter").val());
-        tableau.extensions.settings.set("param", $("#param").val());
+
+        tableau.extensions.settings.set("apiPoint", $("#apiPoint").val());
+        tableau.extensions.settings.set("username", $("#name").val());
+        tableau.extensions.settings.set("password", $("#pword").val());
+        tableau.extensions.settings.set("extractId", $("#exId").val());
         tableau.extensions.settings.saveAsync().then((currentSettings) => {
             tableau.extensions.ui.closeDialog("10");
         });
