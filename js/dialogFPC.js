@@ -17,7 +17,7 @@
 
         dashboard.getParametersAsync().then(function(params) {
             params.forEach(function(p) {
-                $('#param').append("<option value='" + p.id + "'>" + p.name + "</option>");
+                $('#param').append("<option value='" + p.name + "'>" + p.name + "</option>");
             })
         })
 
