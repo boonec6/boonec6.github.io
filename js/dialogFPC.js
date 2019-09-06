@@ -55,7 +55,7 @@
             var cols = sumdata.columns;
             $("#srcField").empty();
             $("#srcField").text("");
-            var counter = 1;
+            var counter = 0;
             cols.forEach(function(c) {
                 console.log(counter + '\t' + c.fieldName);
                 $("#srcField").append("<option value='" + counter + "'>" + c.fieldName + "</option>");
